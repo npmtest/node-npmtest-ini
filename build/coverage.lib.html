@@ -1,5 +1,7 @@
-<html lang="en"><head>
-    <title>Code coverage report for node-npmtest-ini/ini/ini.js</title>
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for node-npmtest-ini/node_modules/ini/ini.js</title>
     <meta charset="utf-8">
     <style>
         body, html {
@@ -192,7 +194,7 @@
     <h1 style="font-weight: bold;">
         <a href="https://github.com/npmtest/node-npmtest-ini">npmtest-ini (v0.0.1)</a>
     </h1>
-    <h1>Code coverage report for <span class="entity">node-npmtest-ini/ini/ini.js</span></h1>
+    <h1>Code coverage report for <span class="entity">node-npmtest-ini/node_modules/ini/ini.js</span></h1>
     <h2>
         
         Statements: <span class="metric">11% <small>(11 / 100)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
@@ -208,11 +210,11 @@
         
         Ignored: <span class="metric"><span class="ignore-none">none</span></span> &nbsp;&nbsp;&nbsp;&nbsp;
     </h2>
-    <div class="path"><a href="../../index.html">All files</a> » <a href="index.html">node-npmtest-ini/ini/</a> » ini.js</div>
+    <div class="path"><a href="../../../index.html">All files</a> &#187; <a href="index.html">node-npmtest-ini/node_modules/ini/</a> &#187; ini.js</div>
 </div>
 <div class="body">
 <pre><table class="coverage">
-<tbody><tr><td class="line-count">1
+<tr><td class="line-count">1
 2
 3
 4
@@ -601,69 +603,69 @@ exports.stringify = exports.encode = encode
 exports.safe = safe
 exports.unsafe = unsafe
 &nbsp;
-var eol = process.platform === "win32" ? <span class="branch-0 cbranch-no" title="branch not covered">"\r\n" </span>: "\n"
+var eol = process.platform === "win32" ? <span class="branch-0 cbranch-no" title="branch not covered" >"\r\n" </span>: "\n"
 &nbsp;
-<span class="fstat-no" title="function not covered">function encode (obj, opt) {</span>
-<span class="cstat-no" title="statement not covered">  var children = []</span>
+<span class="fstat-no" title="function not covered" >function encode (obj, opt) {</span>
+<span class="cstat-no" title="statement not covered" >  var children = []</span>
     , out = ""
 &nbsp;
-<span class="cstat-no" title="statement not covered">  if (typeof opt === "string") {</span>
-<span class="cstat-no" title="statement not covered">    opt = {</span>
+<span class="cstat-no" title="statement not covered" >  if (typeof opt === "string") {</span>
+<span class="cstat-no" title="statement not covered" >    opt = {</span>
       section: opt,
       whitespace: false
     }
   } else {
-<span class="cstat-no" title="statement not covered">    opt = opt || {}</span>
-<span class="cstat-no" title="statement not covered">    opt.whitespace = opt.whitespace === true</span>
+<span class="cstat-no" title="statement not covered" >    opt = opt || {}</span>
+<span class="cstat-no" title="statement not covered" >    opt.whitespace = opt.whitespace === true</span>
   }
 &nbsp;
-<span class="cstat-no" title="statement not covered">  var separator = opt.whitespace ? " = " : "="</span>
+<span class="cstat-no" title="statement not covered" >  var separator = opt.whitespace ? " = " : "="</span>
 &nbsp;
-<span class="cstat-no" title="statement not covered">  Object.keys(obj).forEach(<span class="fstat-no" title="function not covered">function (k, _, __) {</span></span>
-<span class="cstat-no" title="statement not covered">    var val = obj[k]</span>
-<span class="cstat-no" title="statement not covered">    if (val &amp;&amp; Array.isArray(val)) {</span>
-<span class="cstat-no" title="statement not covered">        val.forEach(<span class="fstat-no" title="function not covered">function(item) {</span></span>
-<span class="cstat-no" title="statement not covered">            out += safe(k + "[]") + separator + safe(item) + "\n"</span>
+<span class="cstat-no" title="statement not covered" >  Object.keys(obj).forEach(<span class="fstat-no" title="function not covered" >function (k, _, __) {</span></span>
+<span class="cstat-no" title="statement not covered" >    var val = obj[k]</span>
+<span class="cstat-no" title="statement not covered" >    if (val &amp;&amp; Array.isArray(val)) {</span>
+<span class="cstat-no" title="statement not covered" >        val.forEach(<span class="fstat-no" title="function not covered" >function(item) {</span></span>
+<span class="cstat-no" title="statement not covered" >            out += safe(k + "[]") + separator + safe(item) + "\n"</span>
         })
     }
-    else <span class="cstat-no" title="statement not covered">if (val &amp;&amp; typeof val === "object") {</span>
-<span class="cstat-no" title="statement not covered">      children.push(k)</span>
+    else <span class="cstat-no" title="statement not covered" >if (val &amp;&amp; typeof val === "object") {</span>
+<span class="cstat-no" title="statement not covered" >      children.push(k)</span>
     } else {
-<span class="cstat-no" title="statement not covered">      out += safe(k) + separator + safe(val) + eol</span>
+<span class="cstat-no" title="statement not covered" >      out += safe(k) + separator + safe(val) + eol</span>
     }
   })
 &nbsp;
-<span class="cstat-no" title="statement not covered">  if (opt.section &amp;&amp; out.length) {</span>
-<span class="cstat-no" title="statement not covered">    out = "[" + safe(opt.section) + "]" + eol + out</span>
+<span class="cstat-no" title="statement not covered" >  if (opt.section &amp;&amp; out.length) {</span>
+<span class="cstat-no" title="statement not covered" >    out = "[" + safe(opt.section) + "]" + eol + out</span>
   }
 &nbsp;
-<span class="cstat-no" title="statement not covered">  children.forEach(<span class="fstat-no" title="function not covered">function (k, _, __) {</span></span>
-<span class="cstat-no" title="statement not covered">    var nk = dotSplit(k).join('\\.')</span>
-<span class="cstat-no" title="statement not covered">    var section = (opt.section ? opt.section + "." : "") + nk</span>
-<span class="cstat-no" title="statement not covered">    var child = encode(obj[k], {</span>
+<span class="cstat-no" title="statement not covered" >  children.forEach(<span class="fstat-no" title="function not covered" >function (k, _, __) {</span></span>
+<span class="cstat-no" title="statement not covered" >    var nk = dotSplit(k).join('\\.')</span>
+<span class="cstat-no" title="statement not covered" >    var section = (opt.section ? opt.section + "." : "") + nk</span>
+<span class="cstat-no" title="statement not covered" >    var child = encode(obj[k], {</span>
       section: section,
       whitespace: opt.whitespace
     })
-<span class="cstat-no" title="statement not covered">    if (out.length &amp;&amp; child.length) {</span>
-<span class="cstat-no" title="statement not covered">      out += eol</span>
+<span class="cstat-no" title="statement not covered" >    if (out.length &amp;&amp; child.length) {</span>
+<span class="cstat-no" title="statement not covered" >      out += eol</span>
     }
-<span class="cstat-no" title="statement not covered">    out += child</span>
+<span class="cstat-no" title="statement not covered" >    out += child</span>
   })
 &nbsp;
-<span class="cstat-no" title="statement not covered">  return out</span>
+<span class="cstat-no" title="statement not covered" >  return out</span>
 }
 &nbsp;
-<span class="fstat-no" title="function not covered">function dotSplit (str) {</span>
-<span class="cstat-no" title="statement not covered">  return str.replace(/\1/g, '\u0002LITERAL\\1LITERAL\u0002')</span>
+<span class="fstat-no" title="function not covered" >function dotSplit (str) {</span>
+<span class="cstat-no" title="statement not covered" >  return str.replace(/\1/g, '\u0002LITERAL\\1LITERAL\u0002')</span>
          .replace(/\\\./g, '\u0001')
-         .split(/\./).map(<span class="fstat-no" title="function not covered">function (part) {</span>
-<span class="cstat-no" title="statement not covered">           return part.replace(/\1/g, '\\.')</span>
+         .split(/\./).map(<span class="fstat-no" title="function not covered" >function (part) {</span>
+<span class="cstat-no" title="statement not covered" >           return part.replace(/\1/g, '\\.')</span>
                   .replace(/\2LITERAL\\1LITERAL\2/g, '\u0001')
         })
 }
 &nbsp;
-<span class="fstat-no" title="function not covered">function decode (str) {</span>
-<span class="cstat-no" title="statement not covered">  var out = {}</span>
+<span class="fstat-no" title="function not covered" >function decode (str) {</span>
+<span class="cstat-no" title="statement not covered" >  var out = {}</span>
     , p = out
     , section = null
     , state = "START"
@@ -672,75 +674,75 @@ var eol = process.platform === "win32" ? <span class="branch-0 cbranch-no" title
     , lines = str.split(/[\r\n]+/g)
     , section = null
 &nbsp;
-<span class="cstat-no" title="statement not covered">  lines.forEach(<span class="fstat-no" title="function not covered">function (line, _, __) {</span></span>
-<span class="cstat-no" title="statement not covered">    if (!line || line.match(/^\s*[;#]/)) <span class="cstat-no" title="statement not covered">return</span></span>
-<span class="cstat-no" title="statement not covered">    var match = line.match(re)</span>
-<span class="cstat-no" title="statement not covered">    if (!match) <span class="cstat-no" title="statement not covered">return</span></span>
-<span class="cstat-no" title="statement not covered">    if (match[1] !== undefined) {</span>
-<span class="cstat-no" title="statement not covered">      section = unsafe(match[1])</span>
-<span class="cstat-no" title="statement not covered">      p = out[section] = out[section] || {}</span>
-<span class="cstat-no" title="statement not covered">      return</span>
+<span class="cstat-no" title="statement not covered" >  lines.forEach(<span class="fstat-no" title="function not covered" >function (line, _, __) {</span></span>
+<span class="cstat-no" title="statement not covered" >    if (!line || line.match(/^\s*[;#]/)) <span class="cstat-no" title="statement not covered" >return</span></span>
+<span class="cstat-no" title="statement not covered" >    var match = line.match(re)</span>
+<span class="cstat-no" title="statement not covered" >    if (!match) <span class="cstat-no" title="statement not covered" >return</span></span>
+<span class="cstat-no" title="statement not covered" >    if (match[1] !== undefined) {</span>
+<span class="cstat-no" title="statement not covered" >      section = unsafe(match[1])</span>
+<span class="cstat-no" title="statement not covered" >      p = out[section] = out[section] || {}</span>
+<span class="cstat-no" title="statement not covered" >      return</span>
     }
-<span class="cstat-no" title="statement not covered">    var key = unsafe(match[2])</span>
+<span class="cstat-no" title="statement not covered" >    var key = unsafe(match[2])</span>
       , value = match[3] ? unsafe((match[4] || "")) : true
-<span class="cstat-no" title="statement not covered">    switch (value) {</span>
+<span class="cstat-no" title="statement not covered" >    switch (value) {</span>
       case 'true':
       case 'false':
-      case 'null': <span class="cstat-no" title="statement not covered">value = JSON.parse(value)</span>
+      case 'null': <span class="cstat-no" title="statement not covered" >value = JSON.parse(value)</span>
     }
 &nbsp;
     // Convert keys with '[]' suffix to an array
-<span class="cstat-no" title="statement not covered">    if (key.length &gt; 2 &amp;&amp; key.slice(-2) === "[]") {</span>
-<span class="cstat-no" title="statement not covered">        key = key.substring(0, key.length - 2)</span>
-<span class="cstat-no" title="statement not covered">        if (!p[key]) {</span>
-<span class="cstat-no" title="statement not covered">          p[key] = []</span>
+<span class="cstat-no" title="statement not covered" >    if (key.length &gt; 2 &amp;&amp; key.slice(-2) === "[]") {</span>
+<span class="cstat-no" title="statement not covered" >        key = key.substring(0, key.length - 2)</span>
+<span class="cstat-no" title="statement not covered" >        if (!p[key]) {</span>
+<span class="cstat-no" title="statement not covered" >          p[key] = []</span>
         }
-        else <span class="cstat-no" title="statement not covered">if (!Array.isArray(p[key])) {</span>
-<span class="cstat-no" title="statement not covered">          p[key] = [p[key]]</span>
+        else <span class="cstat-no" title="statement not covered" >if (!Array.isArray(p[key])) {</span>
+<span class="cstat-no" title="statement not covered" >          p[key] = [p[key]]</span>
         }
     }
 &nbsp;
     // safeguard against resetting a previously defined
     // array by accidentally forgetting the brackets
-<span class="cstat-no" title="statement not covered">    if (Array.isArray(p[key])) {</span>
-<span class="cstat-no" title="statement not covered">      p[key].push(value)</span>
+<span class="cstat-no" title="statement not covered" >    if (Array.isArray(p[key])) {</span>
+<span class="cstat-no" title="statement not covered" >      p[key].push(value)</span>
     }
     else {
-<span class="cstat-no" title="statement not covered">      p[key] = value</span>
+<span class="cstat-no" title="statement not covered" >      p[key] = value</span>
     }
   })
 &nbsp;
   // {a:{y:1},"a.b":{x:2}} --&gt; {a:{y:1,b:{x:2}}}
   // use a filter to return the keys that have to be deleted.
-<span class="cstat-no" title="statement not covered">  Object.keys(out).filter(<span class="fstat-no" title="function not covered">function (k, _, __) {</span></span>
-<span class="cstat-no" title="statement not covered">    if (!out[k] || typeof out[k] !== "object" || Array.isArray(out[k])) <span class="cstat-no" title="statement not covered">return false</span></span>
+<span class="cstat-no" title="statement not covered" >  Object.keys(out).filter(<span class="fstat-no" title="function not covered" >function (k, _, __) {</span></span>
+<span class="cstat-no" title="statement not covered" >    if (!out[k] || typeof out[k] !== "object" || Array.isArray(out[k])) <span class="cstat-no" title="statement not covered" >return false</span></span>
     // see if the parent section is also an object.
     // if so, add it to that, and mark this one for deletion
-<span class="cstat-no" title="statement not covered">    var parts = dotSplit(k)</span>
+<span class="cstat-no" title="statement not covered" >    var parts = dotSplit(k)</span>
       , p = out
       , l = parts.pop()
       , nl = l.replace(/\\\./g, '.')
-<span class="cstat-no" title="statement not covered">    parts.forEach(<span class="fstat-no" title="function not covered">function (part, _, __) {</span></span>
-<span class="cstat-no" title="statement not covered">      if (!p[part] || typeof p[part] !== "object") <span class="cstat-no" title="statement not covered">p[part] = {}</span></span>
-<span class="cstat-no" title="statement not covered">      p = p[part]</span>
+<span class="cstat-no" title="statement not covered" >    parts.forEach(<span class="fstat-no" title="function not covered" >function (part, _, __) {</span></span>
+<span class="cstat-no" title="statement not covered" >      if (!p[part] || typeof p[part] !== "object") <span class="cstat-no" title="statement not covered" >p[part] = {}</span></span>
+<span class="cstat-no" title="statement not covered" >      p = p[part]</span>
     })
-<span class="cstat-no" title="statement not covered">    if (p === out &amp;&amp; nl === l) <span class="cstat-no" title="statement not covered">return false</span></span>
-<span class="cstat-no" title="statement not covered">    p[nl] = out[k]</span>
-<span class="cstat-no" title="statement not covered">    return true</span>
-  }).forEach(<span class="fstat-no" title="function not covered">function (del, _, __) {</span>
-<span class="cstat-no" title="statement not covered">    delete out[del]</span>
+<span class="cstat-no" title="statement not covered" >    if (p === out &amp;&amp; nl === l) <span class="cstat-no" title="statement not covered" >return false</span></span>
+<span class="cstat-no" title="statement not covered" >    p[nl] = out[k]</span>
+<span class="cstat-no" title="statement not covered" >    return true</span>
+  }).forEach(<span class="fstat-no" title="function not covered" >function (del, _, __) {</span>
+<span class="cstat-no" title="statement not covered" >    delete out[del]</span>
   })
 &nbsp;
-<span class="cstat-no" title="statement not covered">  return out</span>
+<span class="cstat-no" title="statement not covered" >  return out</span>
 }
 &nbsp;
-<span class="fstat-no" title="function not covered">function isQuoted (val) {</span>
-<span class="cstat-no" title="statement not covered">  return (val.charAt(0) === "\"" &amp;&amp; val.slice(-1) === "\"")</span>
+<span class="fstat-no" title="function not covered" >function isQuoted (val) {</span>
+<span class="cstat-no" title="statement not covered" >  return (val.charAt(0) === "\"" &amp;&amp; val.slice(-1) === "\"")</span>
          || (val.charAt(0) === "'" &amp;&amp; val.slice(-1) === "'")
 }
 &nbsp;
-<span class="fstat-no" title="function not covered">function safe (val) {</span>
-<span class="cstat-no" title="statement not covered">  return ( typeof val !== "string"</span>
+<span class="fstat-no" title="function not covered" >function safe (val) {</span>
+<span class="cstat-no" title="statement not covered" >  return ( typeof val !== "string"</span>
          || val.match(/[=\r\n]/)
          || val.match(/^\[/)
          || (val.length &gt; 1
@@ -750,47 +752,46 @@ var eol = process.platform === "win32" ? <span class="branch-0 cbranch-no" title
          : val.replace(/;/g, '\\;').replace(/#/g, "\\#")
 }
 &nbsp;
-<span class="fstat-no" title="function not covered">function unsafe (val, doUnesc) {</span>
-<span class="cstat-no" title="statement not covered">  val = (val || "").trim()</span>
-<span class="cstat-no" title="statement not covered">  if (isQuoted(val)) {</span>
+<span class="fstat-no" title="function not covered" >function unsafe (val, doUnesc) {</span>
+<span class="cstat-no" title="statement not covered" >  val = (val || "").trim()</span>
+<span class="cstat-no" title="statement not covered" >  if (isQuoted(val)) {</span>
     // remove the single quotes before calling JSON.parse
-<span class="cstat-no" title="statement not covered">    if (val.charAt(0) === "'") {</span>
-<span class="cstat-no" title="statement not covered">      val = val.substr(1, val.length - 2);</span>
+<span class="cstat-no" title="statement not covered" >    if (val.charAt(0) === "'") {</span>
+<span class="cstat-no" title="statement not covered" >      val = val.substr(1, val.length - 2);</span>
     }
-<span class="cstat-no" title="statement not covered">    try { <span class="cstat-no" title="statement not covered">val = JSON.parse(val) }</span> catch (_) {}</span>
+<span class="cstat-no" title="statement not covered" >    try { <span class="cstat-no" title="statement not covered" >val = JSON.parse(val) }</span> catch (_) {}</span>
   } else {
     // walk the val to find the first not-escaped ; character
-<span class="cstat-no" title="statement not covered">    var esc = false</span>
-<span class="cstat-no" title="statement not covered">    var unesc = "";</span>
-<span class="cstat-no" title="statement not covered">    for (var i = 0, l = val.length; i &lt; l; i++) {</span>
-<span class="cstat-no" title="statement not covered">      var c = val.charAt(i)</span>
-<span class="cstat-no" title="statement not covered">      if (esc) {</span>
-<span class="cstat-no" title="statement not covered">        if ("\\;#".indexOf(c) !== -1)</span>
-<span class="cstat-no" title="statement not covered">          unesc += c</span>
+<span class="cstat-no" title="statement not covered" >    var esc = false</span>
+<span class="cstat-no" title="statement not covered" >    var unesc = "";</span>
+<span class="cstat-no" title="statement not covered" >    for (var i = 0, l = val.length; i &lt; l; i++) {</span>
+<span class="cstat-no" title="statement not covered" >      var c = val.charAt(i)</span>
+<span class="cstat-no" title="statement not covered" >      if (esc) {</span>
+<span class="cstat-no" title="statement not covered" >        if ("\\;#".indexOf(c) !== -1)</span>
+<span class="cstat-no" title="statement not covered" >          unesc += c</span>
         else
-<span class="cstat-no" title="statement not covered">          unesc += "\\" + c</span>
-<span class="cstat-no" title="statement not covered">        esc = false</span>
-      } else <span class="cstat-no" title="statement not covered">if (";#".indexOf(c) !== -1) {</span>
-<span class="cstat-no" title="statement not covered">        break</span>
-      } else <span class="cstat-no" title="statement not covered">if (c === "\\") {</span>
-<span class="cstat-no" title="statement not covered">        esc = true</span>
+<span class="cstat-no" title="statement not covered" >          unesc += "\\" + c</span>
+<span class="cstat-no" title="statement not covered" >        esc = false</span>
+      } else <span class="cstat-no" title="statement not covered" >if (";#".indexOf(c) !== -1) {</span>
+<span class="cstat-no" title="statement not covered" >        break</span>
+      } else <span class="cstat-no" title="statement not covered" >if (c === "\\") {</span>
+<span class="cstat-no" title="statement not covered" >        esc = true</span>
       } else {
-<span class="cstat-no" title="statement not covered">        unesc += c</span>
+<span class="cstat-no" title="statement not covered" >        unesc += c</span>
       }
     }
-<span class="cstat-no" title="statement not covered">    if (esc)</span>
-<span class="cstat-no" title="statement not covered">      unesc += "\\"</span>
-<span class="cstat-no" title="statement not covered">    return unesc</span>
+<span class="cstat-no" title="statement not covered" >    if (esc)</span>
+<span class="cstat-no" title="statement not covered" >      unesc += "\\"</span>
+<span class="cstat-no" title="statement not covered" >    return unesc</span>
   }
-<span class="cstat-no" title="statement not covered">  return val</span>
+<span class="cstat-no" title="statement not covered" >  return val</span>
 }
 &nbsp;
 &nbsp;</pre></td></tr>
-</tbody></table></pre>
+</table></pre>
 </div>
 <div class="footer">
-    <div class="meta">Generated by <a href="https://github.com/kaizhu256/node-utility2" target="_blank">utility2</a> at Tue Apr 11 2017 18:32:35 GMT+0000 (UTC)</div>
+    <div class="meta">Generated by <a href="https://github.com/kaizhu256/node-utility2" target="_blank">utility2</a> at Wed Apr 19 2017 08:53:59 GMT+0000 (UTC)</div>
 </div>
-
-
-</body></html>
+</body>
+</html>
