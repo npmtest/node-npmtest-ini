@@ -504,7 +504,7 @@ local.templateApidocHtml = '\
                 var result;
                 local.tryCatchOnError(function () {
                     file = local.path.resolve(options.dir, file);
-                    console.error('apidocCreate - readExample - ' + file);
+                    console.error('apidocCreate - readExample ' + file);
                     result = '';
                     result = ('\n\n\n\n\n\n\n\n' +
                         local.fs.readFileSync(file, 'utf8').slice(0, 262144) +
@@ -738,7 +738,7 @@ vendor\\)s\\{0,1\\}\\(\\b\\|_\\)\
                     if (!tmp.isFiltered) {
                         return;
                     }
-                    console.error('apidocCreate - libFile - ' + file);
+                    console.error('apidocCreate - libFile ' + file);
                     tmp.module = options.require(options.dir + '/' + file);
                     if (!(tmp.module && options.circularList.indexOf(tmp.module) < 0)) {
                         return;
@@ -9487,15 +9487,15 @@ split_lines=split_lines,exports.MAP=MAP,exports.ast_squeeze_more=require("./sque
         // init modeJs
         local.modeJs = (function () {
             try {
-                return typeof navigator.userAgent === 'string' &&
-                    typeof document.querySelector('body') === 'object' &&
-                    typeof XMLHttpRequest.prototype.open === 'function' &&
-                    'browser';
+                return typeof navigator.userAgent === 'string'
+                    && typeof document.querySelector('body') === 'object'
+                    && typeof XMLHttpRequest.prototype.open === 'function'
+                    && 'browser';
             } catch (errorCaughtBrowser) {
-                return module.exports &&
-                    typeof process.versions.node === 'string' &&
-                    typeof require('http').createServer === 'function' &&
-                    'node';
+                return module.exports
+                    && typeof process.versions.node === 'string'
+                    && typeof require('http').createServer === 'function'
+                    && 'node';
             }
         }());
         // init global
@@ -12482,14 +12482,14 @@ return Utf8ArrayToStr(bff);
         /*
          * this function will query dbTableCustomOrg
          */
-            options = local.objectSetDefault(options, { customOrg: local.env.GITHUB_ORG });
             options = local.objectSetDefault(options, {
+                customOrg: local.env.GITHUB_ORG,
                 query: { buildStartedAt: { $not: { $gt: new Date(Date.now() - (
-                    Number(options.olderThanLast) || 0
+                    Number(options && options.olderThanLast) || 0
                 )).toISOString() } } }
             }, 2);
             console.error('dbTableCustomOrgCrudGetManyByQuery - ' + JSON.stringify(options));
-            return local.dbTableCustomOrg.crudGetManyByQuery(options);
+            return local.dbTableCustomOrgCreate().crudGetManyByQuery(options);
         };
 
         local.dbTableCustomOrgUpdate = function (options, onError) {
@@ -15291,8 +15291,8 @@ instruction\n\
                     break;
                 case 'node':
                     local.env.PORT = local.env.PORT || '8081';
-                    local.serverLocalHost = local.serverLocalHost ||
-                        ('http://127.0.0.1:' + local.env.PORT);
+                    local.serverLocalHost = local.serverLocalHost
+                        || ('http://127.0.0.1:' + local.env.PORT);
                     // resolve absolute path
                     if (url[0] === '/') {
                         url = local.serverLocalHost + url;
